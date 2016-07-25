@@ -1,1 +1,6 @@
+base: debian-jessie
 infrastructure: 3.6.8
+crons:
+  mydemotask:
+    time: "0 20 * * *"
+    command: "test -f /var/www/mysite/www/host.txt && sudo -u www-data /usr/local/bin/sera 1 php dev/tasks/MyDemoTask | logger -t SilverStripe_cron"
